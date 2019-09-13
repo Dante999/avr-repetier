@@ -28,8 +28,13 @@
 #define DECOUPLING_TEST_MIN_TEMP_RISE 1
 // Set to 1 if you want firmware to kill print on decouple
 #define KILL_IF_SENSOR_DEFECT 0
-// for each extruder, fan will stay on until extruder temperature is below this value
+
+/**
+ * for each extruder, fan will stay on until extruder temperature is below 
+ * this value
+ */
 #define EXTRUDER_FAN_COOL_TEMP 50
+
 // Retraction for sd pause over lcd
 #define RETRACT_ON_PAUSE 2
 // These commands get executed after storing position and going to park position.
@@ -46,37 +51,44 @@ controlled by settings in extruder 0 definition. */
 #define EXT0_X_OFFSET 0
 #define EXT0_Y_OFFSET 0
 #define EXT0_Z_OFFSET 0
+
 // for skeinforge 40 and later, steps to pull the plastic 1 mm inside the extruder, not out.  Overridden if EEPROM activated.
 #define EXT0_STEPS_PER_MM 413 //385
-// What type of sensor is used?
-// 0 is no thermistor/temperature control
-// 1 is 100k thermistor (Epcos B57560G0107F000 - RepRap-Fab.org and many other)
-// 2 is 200k thermistor
-// 3 is mendel-parts thermistor (EPCOS G550)
-// 4 is 10k thermistor
-// 8 is ATC Semitec 104GT-2
-// 12 is 100k RS thermistor 198-961
-// 13 is PT100 for E3D/Ultimaker
-// 14 is 100K NTC 3950
-// 15 DYZE DESIGN 500°C Thermistor
-// 16 is B3 innovations 500°C sensor
-// 5 is userdefined thermistor table 0
-// 6 is userdefined thermistor table 1
-// 7 is userdefined thermistor table 2
-// 50 is userdefined thermistor table 0 for PTC thermistors
-// 51 is userdefined thermistor table 0 for PTC thermistors
-// 52 is userdefined thermistor table 0 for PTC thermistors
-// 60 is AD8494, AD8495, AD8496 or AD8497 (5mV/degC and 1/4 the price of AD595 but only MSOT_08 package)
-// 61 is AD8494, AD8495, AD8496 or AD8497 (5mV/degC and 1.25 Vref offset like adafruit breakout)
-// 97 Generic thermistor table 1
-// 98 Generic thermistor table 2
-// 99 Generic thermistor table 3
-// 100 is AD595
-// 101 is MAX6675
-// 102 is MAX31855
+
+/**
+ * What type of sensor is used?
+ * 0 is no thermistor/temperature control
+ * 1 is 100k thermistor (Epcos B57560G0107F000 - RepRap-Fab.org and many other)
+ * 2 is 200k thermistor
+ * 3 is mendel-parts thermistor (EPCOS G550)
+ * 4 is 10k thermistor
+ * 8 is ATC Semitec 104GT-2
+ * 12 is 100k RS thermistor 198-961
+ * 13 is PT100 for E3D/Ultimaker
+ * 14 is 100K NTC 3950
+ * 15 DYZE DESIGN 500°C Thermistor
+ * 16 is B3 innovations 500°C sensor
+ * 5 is userdefined thermistor table 0
+ * 6 is userdefined thermistor table 1
+ * 7 is userdefined thermistor table 2
+ * 50 is userdefined thermistor table 0 for PTC thermistors
+ * 51 is userdefined thermistor table 0 for PTC thermistors
+ * 52 is userdefined thermistor table 0 for PTC thermistors
+ * 60 is AD8494, AD8495, AD8496 or AD8497 (5mV/degC and 1/4 the price of AD595 but only MSOT_08 package)
+ * 61 is AD8494, AD8495, AD8496 or AD8497 (5mV/degC and 1.25 Vref offset like adafruit breakout)
+ * 97 Generic thermistor table 1
+ * 98 Generic thermistor table 2
+ * 99 Generic thermistor table 3
+ * 100 is AD595
+ * 101 is MAX6675
+ * 102 is MAX31855
+ */
 #define EXT0_TEMPSENSOR_TYPE 1
+* 
 // Analog input pin for reading temperatures or pin enabling SS for MAX6675
 #define EXT0_TEMPSENSOR_PIN TEMP_0_PIN
+
+
 // Which pin enables the heater
 #define EXT0_HEATER_PIN HEATER_0_PIN
 #define EXT0_STEP_PIN E0_STEP_PIN
@@ -165,10 +177,18 @@ That way you can execute some mechanical components needed for extruder selectio
 The codes are only executed for multiple extruder when changing the extruder. */
 #define EXT0_SELECT_COMMANDS "M117 Extruder 1"
 #define EXT0_DESELECT_COMMANDS ""
-/** The extruder cooler is a fan to cool the extruder when it is heating. If you turn the extruder on, the fan goes on. */
-#define EXT0_EXTRUDER_COOLER_PIN -1
-/** PWM speed for the cooler fan. 0=off 255=full speed */
+
+/** 
+ * The extruder cooler is a fan to cool the extruder when it is heating. 
+ * If you turn the extruder on, the fan goes on. 
+ */
+#define EXT0_EXTRUDER_COOLER_PIN 0
+
+/** 
+ * PWM speed for the cooler fan. 0=off 255=full speed 
+ */
 #define EXT0_EXTRUDER_COOLER_SPEED 255
+
 /** Time in ms between a heater action and test of success. Must be more then time between turning heater on and first temp. rise! 
  * 0 will disable decoupling test */
 #define EXT0_DECOUPLE_TEST_PERIOD 18000
@@ -178,6 +198,19 @@ The codes are only executed for multiple extruder when changing the extruder. */
 #define EXT0_JAM_PULLUP false
 /* Temperature when using preheat */
 #define EXT0_PREHEAT_TEMP 190
+
+
+
+
+
+
+
+
+
+
+
+
+
 // =========================== Configuration for second extruder ========================
 #define EXT1_X_OFFSET 0
 #define EXT1_Y_OFFSET 0
@@ -298,6 +331,17 @@ cog. Direct drive extruder need 0. */
 /** Pull-up resistor for jam pin? */
 #define EXT1_JAM_PULLUP false
 #define EXT1_PREHEAT_TEMP 190
+
+
+
+
+
+
+
+
+
+
+
 
 /** If enabled you can select the distance your filament gets retracted during a
 M140 command, after a given temperature is reached. */
