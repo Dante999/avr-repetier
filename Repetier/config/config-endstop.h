@@ -136,19 +136,7 @@ on this endstop.
 // can set it on for safety.
 #define ALWAYS_CHECK_ENDSTOPS 1
 
-// maximum positions in mm - only fixed numbers!
-// For delta robot Z_MAX_LENGTH is the maximum travel of the towers and should be set to the distance between the hotend
-// and the platform when the printer is at its home position.
-// If EEPROM is enabled these values will be overridden with the values in the EEPROM
-#define X_MAX_LENGTH 200
-#define Y_MAX_LENGTH 200
-#define Z_MAX_LENGTH 170
 
-// Coordinates for the minimum axis. Can also be negative if you want to have the bed start at 0 and the printer can go to the left side
-// of the bed. Maximum coordinate is given by adding the above X_MAX_LENGTH values.
-#define X_MIN_POS -47
-#define Y_MIN_POS -15
-#define Z_MIN_POS 0
 
 // Park position used when pausing from firmware side
 #if DRIVE_SYSTEM == DELTA
