@@ -6,48 +6,87 @@
 // ##                           Extruder configuration                                     ##
 // ##########################################################################################
 
-// You can use either PWM (pulse width modulation) or PDM (pulse density modulation) for
-// extruders or coolers. PDM will give more signal changes per second, so on average it gives
-// the cleaner signal. The only advantage of PWM is giving signals at a fixed rate and never more
-// then PWM.
+/** 
+ * You can use either PWM (pulse width modulation) or PDM (pulse density modulation) for
+ * extruders or coolers. PDM will give more signal changes per second, so on average it gives
+ * the cleaner signal. The only advantage of PWM is giving signals at a fixed rate and never more
+ * then PWM.
+ */
 #define PDM_FOR_EXTRUDER 1
 #define PDM_FOR_COOLER 1
 
-// The firmware checks if the heater and sensor got decoupled, which is dangerous. Since it will never reach target
-// temperature, the heater will stay on for every which can burn your printer or house.
-// As an additional barrier to your smoke detectors (I hope you have one above your printer) we now
-// do some more checks to detect if something got wrong.
+/**
+ * The firmware checks if the heater and sensor got decoupled, which is dangerous. Since it will never reach target
+ * temperature, the heater will stay on for every which can burn your printer or house.
+ * As an additional barrier to your smoke detectors (I hope you have one above your printer) we now
+ * do some more checks to detect if something got wrong.
+ */
 
-// If the temp. is on hold target, it may not sway more then this degrees celsius, or we mark
-// sensor as defect.
+/** 
+ * If the temp. is on hold target, it may not sway more then this degrees celsius, or we mark
+ * sensor as defect.
+ */
 #define DECOUPLING_TEST_MAX_HOLD_VARIANCE 20
-// Minimum temp. rise we expect after the set duration of full heating is over.
-// Always keep a good safety margin to get no false positives. If your period is e.g. 10 seconds
-// because at startup you already need 7 seconds until heater starts to rise temp. for sensor
-// then you have 3 seconds of increased heating to reach 1°C.
+
+/** 
+ * Minimum temp. rise we expect after the set duration of full heating is over.
+ * Always keep a good safety margin to get no false positives. If your period is e.g. 10 seconds
+ * because at startup you already need 7 seconds until heater starts to rise temp. for sensor
+ * then you have 3 seconds of increased heating to reach 1°C.
+ */
 #define DECOUPLING_TEST_MIN_TEMP_RISE 1
-// Set to 1 if you want firmware to kill print on decouple
+
+/**
+ *  Set to 1 if you want firmware to kill print on decouple
+ */
 #define KILL_IF_SENSOR_DEFECT 0
-// for each extruder, fan will stay on until extruder temperature is below this value
+
+/**
+ * for each extruder, fan will stay on until extruder temperature is below this value
+ */ 
 #define EXTRUDER_FAN_COOL_TEMP 50
-// Retraction for sd pause over lcd
+
+/**
+ *  Retraction for sd pause over lcd
+ */
 #define RETRACT_ON_PAUSE 2
-// These commands get executed after storing position and going to park position.
+
+/**
+ *  These commands get executed after storing position and going to park position.
+ */
 #define PAUSE_START_COMMANDS ""
-// These commands get executed before we go to stored position.
+
+/**
+ *  These commands get executed before we go to stored position.
+ */
 #define PAUSE_END_COMMANDS ""
-/* Set to 1 if all extruders use the same heater block. Temp. control is then always
-controlled by settings in extruder 0 definition. */
+
+/**
+ * Set to 1 if all extruders use the same heater block. Temp. control is then 
+ * always controlled by settings in extruder 0 definition. 
+ */
 #define SHARED_EXTRUDER_HEATER 0
-/* Speed in mm/s for extruder moves fom internal commands, e.g. switching extruder. */
+
+/** 
+ * Speed in mm/s for extruder moves fom internal commands, e.g. switching extruder. 
+ */
 #define EXTRUDER_SWITCH_XY_SPEED 100
 
-// Extruder offsets in steps not mm!
+/** 
+ * Extruder offsets in steps not mm!
+ */
 #define EXT0_X_OFFSET 0
 #define EXT0_Y_OFFSET 0
 #define EXT0_Z_OFFSET 0
-// for skeinforge 40 and later, steps to pull the plastic 1 mm inside the extruder, not out.  Overridden if EEPROM activated.
+
+/**
+ * for skeinforge 40 and later, steps to pull the plastic 1 mm inside the 
+ * extruder, not out.  
+ * 
+ * Overridden if EEPROM activated.
+ */
 #define EXT0_STEPS_PER_MM 413 //385
+
 // What type of sensor is used?
 // 0 is no thermistor/temperature control
 // 1 is 100k thermistor (Epcos B57560G0107F000 - RepRap-Fab.org and many other)
@@ -75,34 +114,46 @@ controlled by settings in extruder 0 definition. */
 // 101 is MAX6675
 // 102 is MAX31855
 #define EXT0_TEMPSENSOR_TYPE 1
-// Analog input pin for reading temperatures or pin enabling SS for MAX6675
+
+/** 
+ * Analog input pin for reading temperatures or pin enabling SS for MAX6675
+ */
 #define EXT0_TEMPSENSOR_PIN TEMP_0_PIN
+
 // Which pin enables the heater
-#define EXT0_HEATER_PIN HEATER_0_PIN
-#define EXT0_STEP_PIN E0_STEP_PIN
-#define EXT0_DIR_PIN E0_DIR_PIN
+#define EXT0_HEATER_PIN   HEATER_0_PIN
+#define EXT0_STEP_PIN     E0_STEP_PIN
+#define EXT0_DIR_PIN      E0_DIR_PIN
+
 // set to false/true for normal / inverse direction
 #define EXT0_INVERSE true
 #define EXT0_ENABLE_PIN E0_ENABLE_PIN
 // For Inverting Stepper Enable Pins (Active Low) use 0, Non Inverting (Active High) use 1
 #define EXT0_ENABLE_ON 0
+
 /* Set to 1 to mirror motor. Pins for mirrored motor are below */
 #define EXT0_MIRROR_STEPPER 0
-#define EXT0_STEP2_PIN E0_STEP_PIN
-#define EXT0_DIR2_PIN E0_DIR_PIN
-#define EXT0_INVERSE2 false
-#define EXT0_ENABLE2_PIN E0_ENABLE_PIN
+#define EXT0_STEP2_PIN      E0_STEP_PIN
+#define EXT0_DIR2_PIN       E0_DIR_PIN
+#define EXT0_INVERSE2       false
+#define EXT0_ENABLE2_PIN    E0_ENABLE_PIN
+
+
 // The following speed settings are for skeinforge 40+ where e is the
 // length of filament pulled inside the heater. For repsnap or older
 // skeinforge use higher values.
 //  Overridden if EEPROM activated.
 #define EXT0_MAX_FEEDRATE 30
+
 // Feedrate from halted extruder in mm/s
 //  Overridden if EEPROM activated.
 #define EXT0_MAX_START_FEEDRATE 10
+
 // Acceleration in mm/s^2
 //  Overridden if EEPROM activated.
 #define EXT0_MAX_ACCELERATION 4000
+
+
 /** Type of heat manager for this extruder.
 - 0 = Simply switch on/off if temperature is reached. Works always.
 - 1 = PID Temperature control. Is better but needs good PID values. Defaults are a good start for most extruder.
