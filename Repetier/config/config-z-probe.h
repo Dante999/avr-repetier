@@ -63,18 +63,18 @@
 /** 
  * Distance between nozzle and bed when probe triggers. 
  */
-#define Z_PROBE_HEIGHT 5
+#define Z_PROBE_HEIGHT 0.35
 
 /**
  * Distance to safely switch off probe after it was activated
  * how much is needed to go up to untrigger probe 
  */
-#define Z_PROBE_SWITCHING_DISTANCE 1.5 
+#define Z_PROBE_SWITCHING_DISTANCE 2.5
 
 /**
  * Higher than max bed level distance error in mm
  */
-#define Z_PROBE_BED_DISTANCE 5.0 
+#define Z_PROBE_BED_DISTANCE 6.0 
 
 /**
  * Disable all heaters before probing - required for inductive sensors
