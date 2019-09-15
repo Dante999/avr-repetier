@@ -5,11 +5,36 @@
 
 #define FEATURE_Z_PROBE true
 
-// Especially if you have more then 1 extruder acting as z probe this is important!
+/**
+ * Especially if you have more then 1 extruder acting as z probe this is 
+ * important!
+ */
 #define EXTRUDER_IS_Z_PROBE 0
 
+/**
+ * the pin where the Z-Probe is connected to
+ */
 #define Z_PROBE_PIN 33
+
+/**
+ * activate/deactivate the pullup 
+ * 
+ * 0 = no pullup
+ * 1 = pullup
+ */
 #define Z_PROBE_PULLUP 1
+
+/**
+ * invert the signal of the Z-Probe. Normally the Z-Probe should return LOW if it 
+ * has no contact to the surface. If it touches the surface ist should return 
+ * HIGH. If you Z-Probe returns an inverted signal (LOW when contact), you can 
+ * invert the signal here. 
+ * 
+ * Run the Command G31 to test the probe signal. 
+ * 
+ * 0 = not inverted
+ * 1 = inverted
+ */
 #define Z_PROBE_ON_HIGH 0
 
 /**
@@ -32,7 +57,6 @@
  * needing to recalibrate z.
  */
 #define Z_PROBE_Z_OFFSET 0
-
 #define Z_PROBE_X_OFFSET -21.5
 #define Z_PROBE_Y_OFFSET -17.7
 
@@ -109,26 +133,26 @@
 #define Z_PROBE_MIN_TEMPERATURE 150
 
 /*
-Define how we measure the bed rotation. 
-All methods need at least 3 points to define the bed rotation correctly. The quality we get comes
-from the selection of the right points and method.
+ * Define how we measure the bed rotation. 
+ * All methods need at least 3 points to define the bed rotation correctly. The quality we get comes
+ * from the selection of the right points and method.
+ * 
+ * BED_LEVELING_METHOD 0
+ * This method measures at the 3 probe points and creates a plane through these points. If you have
+ * a really planar bed this gives the optimum result. The 3 points must not be in one line and have
+ * a long distance to increase numerical stability.
+ * 
+ * BED_LEVELING_METHOD 1
+ * This measures a grid. Probe point 1 is the origin and points 2 and 3 span a grid. We measure
+ * BED_LEVELING_GRID_SIZE points in each direction and compute a regression plane through all
+ * points. This gives a good overall plane if you have small bumps measuring inaccuracies.
 
-BED_LEVELING_METHOD 0
-This method measures at the 3 probe points and creates a plane through these points. If you have
-a really planar bed this gives the optimum result. The 3 points must not be in one line and have
-a long distance to increase numerical stability.
-
-BED_LEVELING_METHOD 1
-This measures a grid. Probe point 1 is the origin and points 2 and 3 span a grid. We measure
-BED_LEVELING_GRID_SIZE points in each direction and compute a regression plane through all
-points. This gives a good overall plane if you have small bumps measuring inaccuracies.
-
-BED_LEVELING_METHOD 2
-Bending correcting 4 point measurement. This is for cantilevered beds that have the rotation axis
-not at the side but inside the bed. Here we can assume no bending on the axis and a symmetric
-bending to both sides of the axis. So probe points 2 and 3 build the symmetric axis and
-point 1 is mirrored to 1m across the axis. Using the symmetry we then remove the bending
-from 1 and use that as plane.
+ * BED_LEVELING_METHOD 2
+ * Bending correcting 4 point measurement. This is for cantilevered beds that have the rotation axis
+ * not at the side but inside the bed. Here we can assume no bending on the axis and a symmetric
+ * bending to both sides of the axis. So probe points 2 and 3 build the symmetric axis and
+ * point 1 is mirrored to 1m across the axis. Using the symmetry we then remove the bending
+ * from 1 and use that as plane.
 */
 #define BED_LEVELING_METHOD 1
 
@@ -203,28 +227,42 @@ from 1 and use that as plane.
 #define DISTORTION_XMAX 190
 #define DISTORTION_YMAX 190
 
-/** Uses EEPROM instead of ram. Allows bigger matrix (up to 22x22) without any ram cost.
-  Especially on arm based systems with cached EEPROM it is good, on AVR it has a small
-  performance penalty.
-*/
+/** 
+ * Uses EEPROM instead of ram. Allows bigger matrix (up to 22x22) without any ram cost.
+ * Especially on arm based systems with cached EEPROM it is good, on AVR it has a small
+ * performance penalty.
+ */
 #define DISTORTION_PERMANENT          1
-/** Correction computation is not a cheap operation and changes are only small. So it
-is not necessary to update it for every sub-line computed. For example lets take DELTA_SEGMENTS_PER_SECOND_PRINT = 150
-and fastest print speed 100 mm/s. So we have a maximum segment length of 100/150 = 0.66 mm.
-Now lats say our point field is 200 x 200 mm with 9 x 9 points. So between 2 points we have
-200 / (9-1) = 25 mm. So we need at least 25 / 0.66 = 37 lines to move to the next measuring
-point. So updating correction every 15 calls gives us at least 2 updates between the
-measured points.
-NOTE: Explicit z changes will always trigger an update!
+
+/** 
+ * Correction computation is not a cheap operation and changes are only small. So it
+ * is not necessary to update it for every sub-line computed. For example lets take DELTA_SEGMENTS_PER_SECOND_PRINT = 150
+ * and fastest print speed 100 mm/s. So we have a maximum segment length of 100/150 = 0.66 mm.
+ * Now lats say our point field is 200 x 200 mm with 9 x 9 points. So between 2 points we have
+ * 200 / (9-1) = 25 mm. So we need at least 25 / 0.66 = 37 lines to move to the next measuring
+ * point. So updating correction every 15 calls gives us at least 2 updates between the
+ * measured points.
+ * 
+ * NOTE: Explicit z changes will always trigger an update!
 */
 #define DISTORTION_UPDATE_FREQUENCY   15
-/** z distortion degrades to 0 from this height on. You should start after the first layer to get
-best bonding with surface. */
+
+/** 
+ * z distortion degrades to 0 from this height on. You should start after the 
+ * first layer to get best bonding with surface. 
+ */
 #define DISTORTION_START_DEGRADE 0.5
-/** z distortion correction gets down to 0 at this height. */
+
+/** 
+ * z distortion correction gets down to 0 at this height. 
+ */
 #define DISTORTION_END_HEIGHT 1.5
-/** If your corners measurement points are not measurable with given radius, you can
-set this to 1. It then omits the outer measurement points allowing a larger correction area.*/
+
+/** 
+ * If your corners measurement points are not measurable with given radius, you
+ * can set this to 1. It then omits the outer measurement points allowing a 
+ * larger correction area.
+ */
 #define DISTORTION_EXTRAPOLATE_CORNERS 0
 
 #endif
