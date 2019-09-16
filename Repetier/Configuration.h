@@ -1,5 +1,5 @@
 /**
- * This file is part of Repetier-Firmware.
+
  * 
  * Repetier-Firmware is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -123,20 +123,6 @@
 
 
 
-/** 
- * Some fans won't start for low values, but would run if started with higher
- * power at the beginning.  This defines the full power duration before
- * returning to set value. Time is in milliseconds 
- */
-#define FAN_KICKSTART_TIME  200
-
-/** 
- * Defines the max. fan speed for M106 controlled fans. Normally 255 to use full
- * range, but for 12V fans on 24V this might help preventing a defect. For all
- * other fans there is a explicit maximum PWM value you can set, so this is not
- * used for other fans! 
- */
-#define MAX_FAN_PWM 255
 
 /**
  * #############################################################################
@@ -243,11 +229,14 @@
 
 /**
  * #############################################################################
- * # Feature: Checksum Forced
+ * # Feature: Filament Fan
  * #############################################################################
  */
 
-/** 
+/**
+ *
+ * Enable fan control (M106/M107) for filament cooling.
+ *
  * Should support for fan control be compiled in. If you enable this make sure
  * the FAN pin is not the same as for your second extruder. RAMPS e.g. has
  * FAN_PIN in 9 which is also used for the heater if you have 2 extruders
@@ -261,29 +250,64 @@
 #define FEATURE_FAN2_CONTROL 0
 //#define FAN2_PIN ORIG_FAN2_PIN
 
+/** 
+ * Some fans won't start for low values, but would run if started with higher
+ * power at the beginning.  This defines the full power duration before
+ * returning to set value. Time is in milliseconds 
+ */
+#define FAN_KICKSTART_TIME  200
+
+/** 
+ * Defines the max. fan speed for M106 controlled fans. Normally 255 to use full
+ * range, but for 12V fans on 24V this might help preventing a defect. For all
+ * other fans there is a explicit maximum PWM value you can set, so this is not
+ * used for other fans! 
+ */
+#define MAX_FAN_PWM 255
 
 
 
 
 
-
-/* By setting FAN_BOARD_PIN to a pin number you get a board cooler. That fan 
-goes on as soon as moves occur. Mainly to prevent overheating of stepper drivers. */
+/* 
+ * By setting FAN_BOARD_PIN to a pin number you get a board cooler. That fan
+ * goes on as soon as moves occur. Mainly to prevent overheating of stepper
+ * drivers. 
+ */
 //#undef FAN_BOARD_PIN
 //#define FAN_BOARD_PIN ORIG_FAN_PIN
-/** Speed of board fan when on. 0 = off, 255 = max */
+
+/** 
+ * Speed of board fan when on.
+ *
+ * 0   = off 
+ * 255 = max 
+ */
 #define BOARD_FAN_SPEED 255
-/* Speed when no cooling is required. Normally 0 but if you need slightly cooling
-it can be set here */
+
+/** 
+ * Speed when no cooling is required. Normally 0 but if you need slightly cooling
+ * it can be set here 
+ */
 #define BOARD_FAN_MIN_SPEED 0
-/* You can have one additional fan controlled by a temperature. You can set
-   set at which temperature it should turn on and at which it should reach max. speed.
-*/
+
+
+
+
+/**
+ * #############################################################################
+ * # Feature: Additional Temperature Controlled Fan
+ * #############################################################################
+ *
+ * You can have one additional fan controlled by a temperature. You can set
+ * set at which temperature it should turn on and at which it should reach max. speed.
+ */
 #define FAN_THERMO_PIN -1
 #define FAN_THERMO_MIN_PWM 128
 #define FAN_THERMO_MAX_PWM 255
 #define FAN_THERMO_MIN_TEMP 45
 #define FAN_THERMO_MAX_TEMP 60
+
 // Analog pin number or channel for due boards
 #define FAN_THERMO_THERMISTOR_PIN -1
 #define FAN_THERMO_THERMISTOR_TYPE 1
