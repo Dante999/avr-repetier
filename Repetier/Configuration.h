@@ -114,12 +114,15 @@
 
 
 /*
+ * #############################################################################
+ * # Feature: Ditto Printing
+ * #############################################################################
+ *
  * Ditto printing allows 2 extruders to do the same action. This effectively
  * allows to print an object two times at the speed of one. Works only with dual
  * extruder setup.
  */
 #define FEATURE_DITTO_PRINTING 0
-
 
 
 
@@ -137,6 +140,8 @@
  * 1 = enable (default)
  */
 #define FEATURE_WATCHDOG 1
+
+
 
 
 /** 
@@ -163,6 +168,10 @@
  */
 #define FEATURE_SOFTWARE_LEVELING 0
 
+
+
+
+
 /** 
  * #############################################################################
  * # Feature: Baby Stepping
@@ -178,6 +187,9 @@
  * Limit value to 50 or you get easily overflows.
  */
 #define BABYSTEP_MULTIPLICATOR 1
+
+
+
 
 
 /** 
@@ -217,6 +229,7 @@
 
 
 
+
 /** 
  * #############################################################################
  * # Feature: Checksum Forced
@@ -226,6 +239,10 @@
  * Increases reliability especially for binary protocol. 
  */
 #define FEATURE_CHECKSUM_FORCED 0
+
+
+
+
 
 /**
  * #############################################################################
@@ -302,15 +319,15 @@
  * You can have one additional fan controlled by a temperature. You can set
  * set at which temperature it should turn on and at which it should reach max. speed.
  */
-#define FAN_THERMO_PIN -1
-#define FAN_THERMO_MIN_PWM 128
-#define FAN_THERMO_MAX_PWM 255
-#define FAN_THERMO_MIN_TEMP 45
-#define FAN_THERMO_MAX_TEMP 60
+#define FAN_THERMO_PIN       -1
+#define FAN_THERMO_MIN_PWM   128
+#define FAN_THERMO_MAX_PWM   255
+#define FAN_THERMO_MIN_TEMP  45
+#define FAN_THERMO_MAX_TEMP  60
 
 // Analog pin number or channel for due boards
-#define FAN_THERMO_THERMISTOR_PIN -1
-#define FAN_THERMO_THERMISTOR_TYPE 1
+#define FAN_THERMO_THERMISTOR_PIN   -1
+#define FAN_THERMO_THERMISTOR_TYPE   1
 
 
 
@@ -325,9 +342,9 @@
  * lets the move buffer run empty so closing the door allows continuing the
  * print. The exact behavior might change in the future.
  */
-#define DOOR_PIN -1
-#define DOOR_PULLUP 1
-#define DOOR_INVERTING 1
+#define DOOR_PIN       -1
+#define DOOR_PULLUP     1
+#define DOOR_INVERTING  1
 
 
 
