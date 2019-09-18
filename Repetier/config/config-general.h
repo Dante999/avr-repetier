@@ -155,6 +155,8 @@
 /** 
  * You can write some GCODE to be executed on startup. Use this e.g. to 
  * set some pins. Separate multiple GCODEs with \n
+ *
+ * M320 = Enable Autolevel
  */
 #define STARTUP_GCODE "M320"
 
@@ -162,8 +164,6 @@
 // ##########################################################################################
 // ##                           Communication configuration                                ##
 // ##########################################################################################
-
-//// AD595 THERMOCOUPLE SUPPORT UNTESTED... USE WITH CAUTION!!!!
 
 /**
  * 
@@ -185,71 +185,102 @@
 //#define BAUDRATE 250000
 
 /**
-Some boards like Gen7 have a power on pin, to enable the ATX power supply. If this is defined,
-the power will be turned on without the need to call M80 if initially started.
-*/
+ * Some boards like Gen7 have a power on pin, to enable the ATX power supply. If
+ * this is defined, the power will be turned on without the need to call M80 if
+ * initially started.
+ */
 #define ENABLE_POWER_ON_STARTUP 1
 
 /**
-If you use an ATX power supply you need the power pin to work non inverting. For some special
-boards you might need to make it inverting.
-*/
+ * If you use an ATX power supply you need the power pin to work non inverting.
+ * For some special boards you might need to make it inverting.
+ */
 #define POWER_INVERTING 0
 
-/** Automatically enable power when temperatures or moves/homing is used. Set only to 1 if
- *you have a power unit controlled by PS_ON_PIN! */
+/** 
+ * Automatically enable power when temperatures or moves/homing is used. Set
+ * only to 1 if you have a power unit controlled by PS_ON_PIN! 
+ */
 #define AUTOMATIC_POWERUP 0
 
-/** What shall the printer do, when it receives an M112 emergency stop signal?
- 0 = Disable heaters/motors, wait forever until someone presses reset.
- 1 = restart by resetting the AVR controller. The USB connection will not reset if managed by a different chip!
-*/
+/** 
+ * What shall the printer do, when it receives an M112 emergency stop signal?
+ *
+ * 0 = Disable heaters/motors, wait forever until someone presses reset.  
+ * 1 = restart by resetting the AVR controller. The USB connection will not 
+ *     reset if managed by a different chip!
+ */
 #define KILL_METHOD 1
 
-/** Appends the line number after every ok send, to acknowledge the received command. Uncomment for plain ok ACK if your host has problems with this */
+/** 
+ * Appends the line number after every ok send, to acknowledge the received
+ * command. Uncomment for plain ok ACK if your host has problems with this 
+ */
 #define ACK_WITH_LINENUMBER 1
-/** Communication errors can swallow part of the ok, which tells the host software to send
-the next command. Not receiving it will cause your printer to stop. Sending this string every
-second, if our queue is empty should prevent this. Comment it, if you don't want this feature. */
+
+/** 
+ * Communication errors can swallow part of the ok, which tells the host
+ * software to send the next command. Not receiving it will cause your printer
+ * to stop. Sending this string every second, if our queue is empty should
+ * prevent this. Comment it, if you don't want this feature. 
+ */
 #define WAITING_IDENTIFIER "wait"
 
-/** \brief Sets time for echo debug
-
-You can set M111 1 which enables ECHO of commands sent. This define specifies the position,
-when it will be executed. In the original FiveD software, echo is done after receiving the
-command. With checksum you know, how it looks from the sending string. With this define
-uncommented, you will see the last command executed. To be more specific: It is written after
-execution. This helps tracking errors, because there may be 8 or more commands in the queue
-and it is elsewise difficult to know, what your reprap is currently doing.
-*/
+/** 
+ * Sets time for echo debug
+ *
+ * You can set M111 1 which enables ECHO of commands sent. This define specifies the position,
+ * when it will be executed. In the original FiveD software, echo is done after receiving the
+ * command. With checksum you know, how it looks from the sending string. With this define
+ * uncommented, you will see the last command executed. To be more specific: It is written after
+ * execution. This helps tracking errors, because there may be 8 or more commands in the queue
+ * and it is elsewise difficult to know, what your reprap is currently doing.
+ */
 #define ECHO_ON_EXECUTE 1
 
-/** \brief EEPROM storage mode
-
-Set the EEPROM_MODE to 0 if you always want to use the settings in this configuration file. If not,
-set it to a value not stored in the first EEPROM-byte used. If you later want to overwrite your current
-EEPROM settings with configuration defaults, just select an other value. On the first call to epr_init()
-it will detect a mismatch of the first byte and copy default values into EEPROM. If the first byte
-matches, the stored values are used to overwrite the settings.
-
-IMPORTANT: With mode <>0 some changes in Configuration.h are not set any more, as they are
-           taken from the EEPROM.
-*/
+/** 
+ * EEPROM storage mode
+ * 
+ * Set the EEPROM_MODE to 0 if you always want to use the settings in this
+ * configuration file. If not, set it to a value not stored in the first
+ * EEPROM-byte used. If you later want to overwrite your current EEPROM settings
+ * with configuration defaults, just select an other value. On the first call to
+ * epr_init() it will detect a mismatch of the first byte and copy default
+ * values into EEPROM. If the first byte matches, the stored values are used to
+ * overwrite the settings.
+ * 
+ * IMPORTANT: With mode <>0 some changes in Configuration.h are not set any
+ * more, as they are taken from the EEPROM.
+ */
 #define EEPROM_MODE 0
 
 
-// maximum positions in mm - only fixed numbers!
-// For delta robot Z_MAX_LENGTH is the maximum travel of the towers and should be set to the distance between the hotend
-// and the platform when the printer is at its home position.
-// If EEPROM is enabled these values will be overridden with the values in the EEPROM
+/**
+ * maximum positions in mm - only fixed numbers!
+ *
+ * For delta robot Z_MAX_LENGTH is the maximum travel of the towers and should
+ * be set to the distance between the hotend and the platform when the printer
+ * is at its home position.
+ * 
+ * If EEPROM is enabled these values will be overridden with the values in the
+ * EEPROM
+ */
 #define X_MAX_LENGTH 170
 #define Y_MAX_LENGTH 170
 #define Z_MAX_LENGTH 170
 
-// Coordinates for the minimum axis. Can also be negative if you want to have the bed start at 0 and the printer can go to the left side
-// of the bed. Maximum coordinate is given by adding the above X_MAX_LENGTH values.
+/**
+ * Coordinates for the minimum axis. Can also be negative if you want to have
+ * the bed start at 0 and the printer can go to the left side of the bed.
+ * Maximum coordinate is given by adding the above X_MAX_LENGTH values.
+ */
 #define X_MIN_POS -47
 #define Y_MIN_POS -15
 #define Z_MIN_POS 0
 
+
 #endif
+
+
+
+

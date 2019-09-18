@@ -59,7 +59,6 @@
 #include "config/config-cnc.h"
 #include "config/config-endstop.h"
 #include "config/config-movement.h"
-#include "config/config-extruder-control.h"
 #include "config/config-sdcard.h"
 #include "config/config-servo.h"
 #include "config/config-z-probe.h"
@@ -146,7 +145,7 @@
 
 /** 
  * #############################################################################
- * # Feature: Axis Compensation
+ * # Start: Axis Compensation
  * #############################################################################
  *
  * If your printer is not exactly square but is more like a parallelogram, you
@@ -163,18 +162,10 @@
 
 
 
-/**
- * Experimental calibration utility for delta printers
- */
-#define FEATURE_SOFTWARE_LEVELING 0
-
-
-
-
 
 /** 
  * #############################################################################
- * # Feature: Baby Stepping
+ * # Start: Baby Stepping
  * #############################################################################
  * 
  * Babystepping allows to change z height during print without changing official
@@ -191,7 +182,6 @@
 
 
 
-
 /** 
  * #############################################################################
  * # Feature: Case Light
@@ -203,17 +193,15 @@
 
 
 
-
-
-
-
-
-
-
-/**
+/** 
+ * #############################################################################
+ * # Feature: G2/G3 Arc Command Support
+ * #############################################################################
+ *  
  * If you want support for G2/G3 arc commands set to true, otherwise false.
  */
 #define ARC_SUPPORT 1
+
 
 
 
@@ -243,16 +231,12 @@
 
 
 
-
 /**
  * #############################################################################
- * # Feature: Filament Fan
+ * # Feature: Print Cooling Fan
  * #############################################################################
- */
-
-/**
  *
- * Enable fan control (M106/M107) for filament cooling.
+ * Enable fan control (M106/M107) for (printed) filament cooling.
  *
  * Should support for fan control be compiled in. If you enable this make sure
  * the FAN pin is not the same as for your second extruder. RAMPS e.g. has
@@ -285,8 +269,11 @@
 
 
 
-
-/* 
+/**
+ * #############################################################################
+ * # Feature: Board Fan (e.g. for cooling stepper driver)
+ * #############################################################################
+ *
  * By setting FAN_BOARD_PIN to a pin number you get a board cooler. That fan
  * goes on as soon as moves occur. Mainly to prevent overheating of stepper
  * drivers. 
@@ -361,4 +348,11 @@
 #define FEATURE_JSON 0
 
 
-#endif
+/**
+ * Experimental calibration utility for delta printers
+ */
+#define FEATURE_SOFTWARE_LEVELING 0
+
+
+#endif //CONFIGURATION_H
+
