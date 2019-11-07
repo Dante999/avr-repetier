@@ -280,7 +280,7 @@ is also used for the heater if you have 2 extruders connected. */
 
 /* You can have a second fan controlled by adding P1 to M106/M107 command. */
 #define FEATURE_FAN2_CONTROL 0
-//#define FAN2_PIN ORIG_FAN2_PIN
+#define FAN2_PIN ORIG_FAN2_PIN
 
 /* By setting FAN_BOARD_PIN to a pin number you get a board cooler. That fan 
 goes on as soon as moves occur. Mainly to prevent overheating of stepper drivers. */

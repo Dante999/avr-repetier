@@ -4,7 +4,7 @@
 /**
  * Number of extruders. Maximum 6 extruders. 
  */
-#define NUM_EXTRUDER 1
+#define NUM_EXTRUDER 2
 
 /** 
  * Set to 1 if all extruder motors go to 1 nozzle that mixes your colors. 
@@ -244,7 +244,7 @@ IMPORTANT: With mode <>0 some changes in Configuration.h are not set any more, a
 // If EEPROM is enabled these values will be overridden with the values in the EEPROM
 #define X_MAX_LENGTH 170
 #define Y_MAX_LENGTH 170
-#define Z_MAX_LENGTH 170
+#define Z_MAX_LENGTH 180
 
 // Coordinates for the minimum axis. Can also be negative if you want to have the bed start at 0 and the printer can go to the left side
 // of the bed. Maximum coordinate is given by adding the above X_MAX_LENGTH values.

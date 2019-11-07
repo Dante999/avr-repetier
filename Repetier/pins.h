@@ -712,17 +712,17 @@ STEPPER_CURRENT_CONTROL
 #define ORIG_Z_MIN_PIN          33
 #define ORIG_Z_MAX_PIN          32
 
-#define ORIG_E0_STEP_PIN         23
-#define ORIG_E0_DIR_PIN          22
-#define ORIG_E0_ENABLE_PIN       24
+#define ORIG_E0_STEP_PIN         29
+#define ORIG_E0_DIR_PIN          28
+#define ORIG_E0_ENABLE_PIN       39
 
 #define ORIG_E1_STEP_PIN        26
 #define ORIG_E1_DIR_PIN         25
 #define ORIG_E1_ENABLE_PIN      27
 
-#define ORIG_E2_STEP_PIN        29
-#define ORIG_E2_DIR_PIN         28
-#define ORIG_E2_ENABLE_PIN      39
+#define ORIG_E2_STEP_PIN        23
+#define ORIG_E2_DIR_PIN         22
+#define ORIG_E2_ENABLE_PIN      24
 
 #define LED_PIN            13
 
@@ -3241,4 +3241,3 @@ S3(ext)=9
         ORIG_Z_DIR_PIN, ORIG_Z_ENABLE_PIN, ORIG_Z_MIN_PIN, ORIG_Z_MAX_PIN, LED_PIN, ORIG_PS_ON_PIN, \
         HEATER_0_PIN, HEATER_1_PIN, /*ORIG_FAN_PIN,*/ E0_PINS E1_PINS E2_PINS TEMP_0_PIN, TEMP_1_PIN,SDSS }
 #endif
-

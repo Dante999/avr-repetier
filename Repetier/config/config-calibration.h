@@ -32,7 +32,7 @@
 #define STEPS_PER_ROTATION 200
 
 /** \brief Micro stepping rate of X, Y and Y tower stepper drivers */
-#define MICRO_STEPS 16
+#define MICRO_STEPS 32
 
 // Calculations
 #define AXIS_STEPS_PER_MM ((float)(MICRO_STEPS * STEPS_PER_ROTATION) / PULLEY_CIRCUMFERENCE)
