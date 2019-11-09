@@ -63,7 +63,7 @@
 /** 
  * Distance between nozzle and bed when probe triggers. 
  */
-#define Z_PROBE_HEIGHT 0.18
+#define Z_PROBE_HEIGHT 0.6
 
 /**
  * Distance to safely switch off probe after it was activated
