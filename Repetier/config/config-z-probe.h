@@ -57,13 +57,13 @@
  * needing to recalibrate z.
  */
 #define Z_PROBE_Z_OFFSET 0
-#define Z_PROBE_X_OFFSET -21.5
-#define Z_PROBE_Y_OFFSET -17.7
+#define Z_PROBE_X_OFFSET 30
+#define Z_PROBE_Y_OFFSET 15
 
 /** 
  * Distance between nozzle and bed when probe triggers. 
  */
-#define Z_PROBE_HEIGHT 0.35
+#define Z_PROBE_HEIGHT 0.18
 
 /**
  * Distance to safely switch off probe after it was activated
