@@ -242,13 +242,13 @@ IMPORTANT: With mode <>0 some changes in Configuration.h are not set any more, a
 // For delta robot Z_MAX_LENGTH is the maximum travel of the towers and should be set to the distance between the hotend
 // and the platform when the printer is at its home position.
 // If EEPROM is enabled these values will be overridden with the values in the EEPROM
-#define X_MAX_LENGTH 170
-#define Y_MAX_LENGTH 170
+#define X_MAX_LENGTH 235
+#define Y_MAX_LENGTH 235
 #define Z_MAX_LENGTH 180
 
 // Coordinates for the minimum axis. Can also be negative if you want to have the bed start at 0 and the printer can go to the left side
 // of the bed. Maximum coordinate is given by adding the above X_MAX_LENGTH values.
-#define X_MIN_POS -47
+#define X_MIN_POS -37
 #define Y_MIN_POS -15
 #define Z_MIN_POS 0
 
