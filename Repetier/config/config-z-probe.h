@@ -57,7 +57,7 @@
  * needing to recalibrate z.
  */
 #define Z_PROBE_Z_OFFSET 0
-#define Z_PROBE_X_OFFSET 30
+#define Z_PROBE_X_OFFSET 20
 #define Z_PROBE_Y_OFFSET 15
 
 /** 
@@ -189,12 +189,16 @@
    The same 3 points are used for the G29 command.
 */
 #define FEATURE_AUTOLEVEL 1
-#define Z_PROBE_X1 100
+
+#define Z_PROBE_X1 20
 #define Z_PROBE_Y1 20
-#define Z_PROBE_X2 160
-#define Z_PROBE_Y2 170
-#define Z_PROBE_X3 20
-#define Z_PROBE_Y3 170
+
+#define Z_PROBE_X2 150
+#define Z_PROBE_Y2 20
+
+#define Z_PROBE_X3 70
+#define Z_PROBE_Y3 150
+
 /* Bending correction adds a value to a measured z-probe value. This may be
   required when the z probe needs some force to trigger and this bends the
   bed down. Currently the correction values A/B/C correspond to z probe
