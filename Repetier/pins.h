@@ -712,17 +712,20 @@ STEPPER_CURRENT_CONTROL
 #define ORIG_Z_MIN_PIN          33
 #define ORIG_Z_MAX_PIN          32
 
-#define ORIG_E0_STEP_PIN         23
-#define ORIG_E0_DIR_PIN          22
-#define ORIG_E0_ENABLE_PIN       24
+// flipped pinout for E0 and E2, because of a broken 
+// driver on the mainboard :)
+#define ORIG_E0_STEP_PIN         29
+#define ORIG_E0_DIR_PIN          28
+#define ORIG_E0_ENABLE_PIN       39
+
 
 #define ORIG_E1_STEP_PIN        26
 #define ORIG_E1_DIR_PIN         25
 #define ORIG_E1_ENABLE_PIN      27
 
-#define ORIG_E2_STEP_PIN        29
-#define ORIG_E2_DIR_PIN         28
-#define ORIG_E2_ENABLE_PIN      39
+#define ORIG_E2_STEP_PIN        23
+#define ORIG_E2_DIR_PIN         22
+#define ORIG_E2_ENABLE_PIN      24
 
 #define LED_PIN            13
 
