@@ -1,15 +1,6 @@
 #ifndef CONFIG_GENERAL_H
 #define CONFIG_GENERAL_H
 
-/**
- * Number of extruders. Maximum 6 extruders. 
- */
-#define NUM_EXTRUDER 1
-
-/** 
- * Set to 1 if all extruder motors go to 1 nozzle that mixes your colors. 
- */
-#define MIXING_EXTRUDER 0
 
 /**
  * The following define selects which electronics board you have. 

@@ -5,6 +5,15 @@
 // ##                           Extruder control                                           ##
 // ##########################################################################################
 
+/**
+ * Number of extruders. Maximum 6 extruders. 
+ */
+#define NUM_EXTRUDER 1
+
+/** 
+ * Set to 1 if all extruder motors go to 1 nozzle that mixes your colors. 
+ */
+#define MIXING_EXTRUDER 0
 
 /*
  * Minimum temperature for extruder operation
