@@ -135,7 +135,7 @@
  * 
  * Overridden if EEPROM activated.
  */
-#define EXT0_STEPS_PER_MM 413
+#define EXT0_STEPS_PER_MM 206
 #define EXT1_STEPS_PER_MM 373
 
 /**
@@ -403,7 +403,7 @@
  * The extruder cooler is a fan to cool the extruder when it is heating. If the 
  * extruder reaches a defined temperature, the fan goes on
  */
-#define EXT0_EXTRUDER_COOLER_PIN -1
+#define EXT0_EXTRUDER_COOLER_PIN ORIG_FAN2_PIN
 #define EXT1_EXTRUDER_COOLER_PIN -1
 
 /**
