@@ -14,7 +14,6 @@
  * to move unless the filament is at least molten. After having some complains
  * that the extruder does not work, I leave it 0 as default.
  */
-
 #define MIN_EXTRUDER_TEMP 160
 
 /** 
@@ -91,11 +90,6 @@
 
 
 
-/**
- * for each extruder, fan will stay on until extruder temperature is below this
- * value
- */ 
-#define EXTRUDER_FAN_COOL_TEMP 50
 
 /**
  *  Retraction for sd pause over lcd
@@ -406,11 +400,17 @@
  * # Extruder Cooler
  * #############################################################################
  *
- * The extruder cooler is a fan to cool the extruder when it is heating. If you
- * turn the extruder on, the fan goes on. 
+ * The extruder cooler is a fan to cool the extruder when it is heating. If the 
+ * extruder reaches a defined temperature, the fan goes on
  */
 #define EXT0_EXTRUDER_COOLER_PIN -1
 #define EXT1_EXTRUDER_COOLER_PIN -1
+
+/**
+ * for each extruder, fan will stay on until extruder temperature is below this
+ * value
+ */ 
+#define EXTRUDER_FAN_COOL_TEMP 50
 
 /** 
  * PWM speed for the cooler fan. 

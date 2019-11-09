@@ -1,5 +1,0 @@
-#ifndef CONFIG_EXTRUDER_CONTROL_H
-#define CONFIG_EXTRUDER_CONTROL_H
-
-
-#endif
