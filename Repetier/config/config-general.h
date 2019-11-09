@@ -267,7 +267,7 @@
  */
 #define X_MAX_LENGTH 170
 #define Y_MAX_LENGTH 170
-#define Z_MAX_LENGTH 170
+#define Z_MAX_LENGTH 180
 
 /**
  * Coordinates for the minimum axis. Can also be negative if you want to have
