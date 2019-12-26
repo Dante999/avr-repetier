@@ -8,7 +8,7 @@
 /**
  * Number of extruders. Maximum 6 extruders. 
  */
-#define NUM_EXTRUDER 1
+#define NUM_EXTRUDER 2
 
 /** 
  * Set to 1 if all extruder motors go to 1 nozzle that mixes your colors. 
@@ -145,7 +145,7 @@
  * Overridden if EEPROM activated.
  */
 #define EXT0_STEPS_PER_MM 206
-#define EXT1_STEPS_PER_MM 373
+#define EXT1_STEPS_PER_MM 198.5
 
 /**
  * What type of sensor is used?
@@ -179,7 +179,7 @@
  * 102 = MAX31855
  */
 #define EXT0_TEMPSENSOR_TYPE 1
-#define EXT1_TEMPSENSOR_TYPE 3
+#define EXT1_TEMPSENSOR_TYPE 1
 
 /** 
  * Analog input pin for reading temperatures or pin enabling SS for MAX6675
@@ -203,7 +203,7 @@
  * set to false/true for normal / inverse direction
  */
 #define EXT0_INVERSE      true
-#define EXT1_INVERSE      false
+#define EXT1_INVERSE      true
 
 #define EXT0_ENABLE_PIN   E0_ENABLE_PIN
 #define EXT1_ENABLE_PIN   E1_ENABLE_PIN

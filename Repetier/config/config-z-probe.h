@@ -63,13 +63,13 @@
 /** 
  * Distance between nozzle and bed when probe triggers. 
  */
-#define Z_PROBE_HEIGHT 0.6
+#define Z_PROBE_HEIGHT 0.1
 
 /**
  * Distance to safely switch off probe after it was activated
  * how much is needed to go up to untrigger probe 
  */
-#define Z_PROBE_SWITCHING_DISTANCE 2.5
+#define Z_PROBE_SWITCHING_DISTANCE 4
 
 /**
  * Higher than max bed level distance error in mm
@@ -154,7 +154,7 @@
  * point 1 is mirrored to 1m across the axis. Using the symmetry we then remove the bending
  * from 1 and use that as plane.
 */
-#define BED_LEVELING_METHOD 1
+#define BED_LEVELING_METHOD 0
 
 /**
  *  How to correct rotation.

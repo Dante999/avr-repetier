@@ -83,14 +83,14 @@
  *
  * Overridden if EEPROM activated.
  * */
-#	define XAXIS_STEPS_PER_MM 203
+#	define XAXIS_STEPS_PER_MM 202
 
 /**
  * Number of steps for a 1mm move in y direction.
  * For xy gantry use 2*belt moved!
  *
  * Overridden if EEPROM activated.*/
-#	define YAXIS_STEPS_PER_MM 203
+#	define YAXIS_STEPS_PER_MM 202
 
 /**
  * Number of steps for a 1mm move in z direction
